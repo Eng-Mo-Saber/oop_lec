@@ -1,7 +1,7 @@
 <?php
 
 
-class Product
+class Products
 {
     public string $name;
     public int $price;
@@ -27,7 +27,7 @@ class Product
 
 }
 // product 1 :
-$product1 = new Product();
+$product1 = new Products();
 $product1->name = "لاب توب سامسونج جلاكسي بوك lon" ;
 $product1->price = 20000 ;
 $product1->brand = "سامسونج" ;
@@ -38,7 +38,7 @@ $product1->get_final_price() . "<br>---------------------------------<br>";
 //---------------------
 // product 2 :
 
-$product2 = new Product();
+$product2 = new Products();
 $product2->name = "لاب توب توشيبا c50-H" ;
 $product2->price = 15000 ;
 $product2->brand = "توشيبا" ;
@@ -49,7 +49,7 @@ $product2->get_final_price() . "<br>---------------------------------<br>";
 //---------------------
 // product 3 :
 
-$product3 = new Product();
+$product3 = new Products();
 $product3->name = "لاب توب HP ZBook" ;
 $product3->price = 10000 ;
 $product3->brand = "HP" ;
