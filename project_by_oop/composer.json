@@ -1,0 +1,17 @@
+{
+    "name": "myprojrct/oop1",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\": "database/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mohamed"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
