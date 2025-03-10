@@ -1,5 +1,4 @@
 <?php
-
 class CreateCartItemsTable
 {
     public function up($conn)

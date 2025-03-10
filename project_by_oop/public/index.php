@@ -1,12 +1,14 @@
 <?php
-
-use Database\MigrationManager;
+session_start();
 use Database\DatabaseManger;
-
+use Database\MigrationManager;
 
 require_once "../vendor/autoload.php";
-require_once "../routes/web.php";
 
 DatabaseManger::initialize();
 
-MigrationManager::getMigration();
+MigrationManager::runMigrations();
+
+
+
+require_once "../routes/web.php";

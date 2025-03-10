@@ -2,11 +2,11 @@
 
 namespace Database ;
 use PDO ;
-use Throwable;
+use PDOException;
 
 class DatabaseManger{
-    private static ?PDO $conn = null ;
     private static array $config ;
+    private static ?PDO $conn = null ;
 
     private static function loadConfig(){
         if(!isset(self::$config)){
@@ -14,17 +14,17 @@ class DatabaseManger{
         }
     }
 
-    private static function connect($useDb = null){
+    private static function connect($useDb = false){
         self::loadConfig();
         try {
-            $dsn ="mysql:host". self::$config['host'];
+            $dsn ="mysql:host=". self::$config['host'];
             if($useDb){
                 $dsn .= ";dbname=" . self::$config['dbname'];
             }
-            self::$conn = new PDO($dsn , self::$config['username'] ,self::$config['password']);
+            self::$conn = new PDO($dsn, self::$config['username'], self::$config['password']);
             self::$conn->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-        } catch (Throwable $th) {
-            //throw $th;
+        } catch (PDOException $e) {
+            die("Database connection Error: " . $e->getMessage());
         }
     }
 
@@ -43,10 +43,15 @@ class DatabaseManger{
         }
     }
 
-    public static function getDatabase() : PDO
+    public static function getConnection(): PDO
     {
+        if(!isset(self::$conn)){
+            self::initialize();
+        }
         return self::$conn ;
+
     }
+
     public static function initialize() {
         self::connect();
         self::createDatabase();

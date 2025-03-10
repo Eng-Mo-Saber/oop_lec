@@ -1,6 +1,5 @@
 <?php
 
-
 class CreateCartsTable
 {
     public function up($conn)

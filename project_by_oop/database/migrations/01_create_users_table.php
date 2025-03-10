@@ -5,6 +5,7 @@ class CreateUsersTable
 {
     public function up($conn)
     {
+        
         $sql = "CREATE TABLE IF NOT EXISTS users (
             id INT AUTO_INCREMENT PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
@@ -13,5 +14,6 @@ class CreateUsersTable
         )";
 
         $conn->exec($sql);
+
     }
 }
